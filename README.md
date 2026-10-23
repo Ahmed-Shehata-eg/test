@@ -8,7 +8,8 @@
 - أقسام للمراحل الدراسية الثلاث.
 - نافذة طلب اشتراك تجريبية مع اختيار الصف.
 - أسئلة شائعة وقسم لطريقة التعلّم.
-- ملفات الواجهة: `index.html` و`style.css` و`script.js`.
+- تكامل واجهة Clerk موجود على فرع التطوير `feature/platform-foundation`، ويحتاج مفتاح Publishable وإعدادات لوحة Clerk واختبارًا قبل اعتباره جاهزًا.
+- ملفات الواجهة: `index.html` و`style.css` و`script.js` و`auth.js`.
 - صورة الأستاذ: `ahmed-shehata.jpeg`.
 
 ## تشغيل النسخة الحالية
@@ -22,7 +23,7 @@
 ## خطة التطوير
 
 1. تنظيم الكورسات والصفوف الاثني عشر: الأول إلى السادس الابتدائي، والأول إلى الثالث الإعدادي، والأول إلى الثالث الثانوي.
-2. إنشاء تسجيل دخول آمن للطلاب ولوحة إدارة للأستاذ.
+2. إكمال إعداد Clerk وتسجيل الدخول الآمن للطلاب ولوحة إدارة للأستاذ.
 3. تصميم قاعدة بيانات للطلاب والصفوف والكورسات والدروس والامتحانات والاشتراكات.
 4. ربط استضافة فيديو مناسبة مع التحكم في الوصول للمحتوى المدفوع.
 5. ربط بوابة دفع تدعم مصر، والتحقق من الدفع من جهة الخادم عبر إشعارات موثوقة.
@@ -38,12 +39,11 @@
 
 ## التقنية المقترحة للمرحلة الإنتاجية
 
-يمكن نقل المشروع تدريجيًا إلى واجهة Next.js وTypeScript، مع PostgreSQL/Supabase للمصادقة والبيانات، وخدمة فيديو محمية، وبوابة دفع مصرية مناسبة. تُحسم التفاصيل بعد تحديد متطلبات الأستاذ وحجم الاستخدام وتكاليف الخدمات.
-
+استخدم Clerk للمصادقة بعد إكمال الإعداد والاختبار. يمكن اختيار قاعدة بيانات مناسبة لاحقًا، مع خدمة فيديو محمية وبوابة دفع مصرية. تُحسم التفاصيل بعد تحديد متطلبات الأستاذ وحجم الاستخدام وتكاليف الخدمات.
 
 ## Authentication and online payments
 
-- Student authentication is being migrated from an unconfigured Supabase placeholder to the selected Clerk application.
-- The static frontend uses Clerk's browser SDK. Authentication will not work until the Clerk Publishable Key is configured and phone/password sign-in options are enabled in the Clerk Dashboard.
-- Follow [the Clerk and EasyKash setup guide](docs/GOOGLE_AUTH_EASYKASH_SETUP.md). Never place a Clerk Secret Key in browser JavaScript or GitHub.
+- Clerk browser integration is on `feature/platform-foundation`; it is not live until the existing Clerk application's Publishable Key and Dashboard options are configured and the sign-in flow is tested.
+- Follow [the Clerk setup guide](docs/CLERK_SETUP.md). Never put a Clerk Secret Key in browser JavaScript or GitHub.
+- Phone/SMS sign-in may require a paid Clerk plan for production and correct SMS country settings.
 - EasyKash checkout is **not live yet**. Production payment processing must use EasyKash's official merchant API documentation and server-side credential storage. A redirect alone must never unlock a course.
