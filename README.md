@@ -41,8 +41,9 @@
 يمكن نقل المشروع تدريجيًا إلى واجهة Next.js وTypeScript، مع PostgreSQL/Supabase للمصادقة والبيانات، وخدمة فيديو محمية، وبوابة دفع مصرية مناسبة. تُحسم التفاصيل بعد تحديد متطلبات الأستاذ وحجم الاستخدام وتكاليف الخدمات.
 
 
-## Phone/password login and online payments
+## Authentication and online payments
 
-- Google login has been removed from the development branch. The frontend now has phone/password sign-up and login, SMS verification for sign-up, and phone-verified password reset.
-- Authentication is **not live until configured**. Follow [the setup guide](docs/GOOGLE_AUTH_EASYKASH_SETUP.md) to configure Supabase and SMS, then replace the placeholder project URL and publishable/anon key in `auth.js`.
+- Student authentication is being migrated from an unconfigured Supabase placeholder to the selected Clerk application.
+- The static frontend uses Clerk's browser SDK. Authentication will not work until the Clerk Publishable Key is configured and phone/password sign-in options are enabled in the Clerk Dashboard.
+- Follow [the Clerk and EasyKash setup guide](docs/GOOGLE_AUTH_EASYKASH_SETUP.md). Never place a Clerk Secret Key in browser JavaScript or GitHub.
 - EasyKash checkout is **not live yet**. Production payment processing must use EasyKash's official merchant API documentation and server-side credential storage. A redirect alone must never unlock a course.
