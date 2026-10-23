@@ -267,3 +267,27 @@ h2 { font-size: clamp(28px, 3.3vw, 43px); }
 	.google-login-button { width: 100%; min-height: 44px; justify-content: center; }
 	.auth-status { max-width: 100%; text-align: center; }
 }
+
+
+/* WhatsApp contact links */
+.whatsapp-contact {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 9px;
+	width: 100%;
+	margin-top: 10px;
+	padding: 12px 14px;
+	border: 1px solid #25a56a;
+	border-radius: 3px;
+	background: #e9f8ef;
+	color: #176b43;
+	font-size: 12px;
+	font-weight: 700;
+	transition: background .2s ease, transform .2s ease;
+}
+.whatsapp-contact:hover { background: #d8f2e2; transform: translateY(-1px); }
+.whatsapp-contact > span { font-size: 17px; }
+.whatsapp-contact bdi { font-size: 11px; font-weight: 600; }
+.footer-whatsapp { color: var(--lime); font-size: 10px; font-weight: 700; }
+.footer-whatsapp span { margin-inline-start: 4px; }
