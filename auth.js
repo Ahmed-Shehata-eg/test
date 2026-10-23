@@ -1,7 +1,7 @@
 // Clerk authentication for the static HTML website.
 // Use the Publishable Key from the EXISTING Clerk application.
 // A publishable key is intended for browser use; never put a Clerk Secret Key here.
-const CLERK_PUBLISHABLE_KEY = "YOUR_CLERK_PUBLISHABLE_KEY";
+const CLERK_PUBLISHABLE_KEY = "pk_test_Z3VpZGVkLXN0YXJsaW5nLTk0MTAuY2xlcmsuYWNjb3VudHMuZGV2JA";
 
 const openButton = document.querySelector("#phone-auth-open");
 const status = document.querySelector("#auth-status");
