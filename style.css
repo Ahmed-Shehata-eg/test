@@ -327,3 +327,15 @@ h2 { font-size: clamp(28px, 3.3vw, 43px); }
 .phone-auth-dialog form { display:grid; gap:10px; }
 .phone-auth-dialog input[hidden], .phone-auth-dialog label[hidden], .phone-auth-dialog form[hidden] { display:none !important; }
 .phone-auth-dialog [hidden] { display:none !important; }
+
+
+/* Clerk authentication UI */
+#clerk-auth-mount {
+	width: 100%;
+	min-height: 280px;
+	margin-top: 16px;
+	direction: ltr;
+}
+#clerk-auth-mount > * { max-width: 100%; }
+.phone-auth-dialog #clerk-auth-message { margin-top: 12px; }
+.phone-auth-dialog .form-privacy { margin-top: 16px; }
