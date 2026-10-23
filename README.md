@@ -46,3 +46,5 @@
 - A Google sign-in control and Supabase OAuth client are included in `auth.js`.
 - Google/Supabase dashboard configuration is still required; see [Google and EasyKash setup](docs/GOOGLE_AUTH_EASYKASH_SETUP.md).
 - EasyKash checkout is **not live yet**. Production payment processing must use EasyKash's official merchant API documentation and server-side credential storage. A redirect alone must never unlock a course.
+
+- Phone-number login with SMS OTP is now included in the frontend; configure Supabase Phone Auth and an SMS provider before testing. See [setup guide](docs/GOOGLE_AUTH_EASYKASH_SETUP.md).
