@@ -1,56 +1,12 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#050816">
-<meta name="description" content="اختار المرحلة الدراسية في منصة الأستاذ أحمد شحاتة.">
-<title>المراحل الدراسية | الأستاذ أحمد شحاتة</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{color-scheme:dark;--blue:#176bff;--cyan:#42d9ff}
-*{box-sizing:border-box}
-body{margin:0;min-height:100vh;background:#030611;color:#f5f8ff;font-family:"Noto Sans Arabic","Alexandria",sans-serif}
-.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(ellipse at 50% 110%,#0b245a 0,transparent 55%),linear-gradient(145deg,#02040b,#07112b 55%,#02040b)}
-.bg:before{content:"";position:absolute;inset:-45%;background:repeating-linear-gradient(0deg,transparent 0 54px,rgba(58,135,255,.09) 55px 56px),repeating-linear-gradient(90deg,transparent 0 54px,rgba(58,135,255,.09) 55px 56px);transform:perspective(520px) rotateX(58deg) scale(1.6);transform-origin:center bottom;animation:grid 18s linear infinite}
-.glow{position:absolute;width:42vw;height:42vw;min-width:240px;min-height:240px;border-radius:50%;filter:blur(85px);opacity:.34;animation:float 12s ease-in-out infinite alternate}
-.g1{top:-15%;left:-10%;background:#075bff}.g2{right:-12%;bottom:-20%;background:#00b7ff;animation-delay:-5s}
-@keyframes grid{to{background-position:0 110px,110px 0}}@keyframes float{to{transform:translate(6vw,5vh) scale(1.16)}}
-header{width:min(1100px,calc(100% - 36px));margin:auto;padding:24px 0;display:flex;justify-content:space-between;align-items:center;gap:16px}
-.brand{color:#fff;text-decoration:none;font-weight:800;display:flex;align-items:center;gap:11px}.mark{display:grid;place-items:center;width:43px;height:43px;border:1px solid #3e9bff;border-radius:13px;color:#7eeaff;background:#0b1d42}
-header nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}header nav a{color:#c8d8f7;text-decoration:none;font-size:14px}
-main{width:min(1100px,calc(100% - 36px));margin:clamp(36px,8vh,90px) auto 70px}
-.eyebrow{color:#72dfff;font-size:13px;font-weight:700;letter-spacing:.03em}
-h1{font-size:clamp(34px,6vw,60px);line-height:1.4;margin:12px 0}h1 em{font-style:normal;color:#54d9ff;text-shadow:0 0 28px #176bff55}
-.intro{max-width:650px;color:#b5c7e8;line-height:2;font-size:16px;margin-bottom:34px}
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.card{display:flex;flex-direction:column;min-height:245px;padding:25px;border:1px solid #31548a;border-radius:20px;background:linear-gradient(145deg,rgba(12,25,55,.88),rgba(4,9,23,.92));box-shadow:0 18px 50px #0004;transition:transform .22s,border-color .22s,box-shadow .22s}
-.card:hover{transform:translateY(-5px);border-color:#48cfff;box-shadow:0 18px 55px #075bff28}
-.number{color:#6ddfff;font-weight:800;font-size:13px}.card h2{font-size:24px;margin:18px 0 8px}.card p{color:#b3c5e5;line-height:1.9;margin:0 0 22px}
-.card a{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border:1px solid #369bff;border-radius:10px;color:#fff;text-decoration:none;font-weight:800;background:linear-gradient(100deg,#1258ec,#087ebd)}
-.note{margin-top:26px;color:#849bc3;font-size:12px;line-height:1.9}
-@media(max-width:760px){.cards{grid-template-columns:1fr}.card{min-height:unset}header{align-items:flex-start}header nav{justify-content:flex-end}}
-@media(prefers-reduced-motion:reduce){.bg:before,.glow{animation:none}.card{transition:none}}
-</style>
+<meta http-equiv="refresh" content="0;url=../tracks/">
+<link rel="canonical" href="../tracks/">
+<title>Moving to Tracks</title>
+<script>window.location.replace("../tracks/");</script>
 </head>
-<body>
-<div class="bg" aria-hidden="true"><span class="glow g1"></span><span class="glow g2"></span></div>
-<header>
-<a class="brand" href="../"><span class="mark" aria-hidden="true">ع</span><span>الأستاذ أحمد شحاتة</span></a>
-<nav aria-label="التنقل"><a href="../">الصفحة الرئيسية</a><a href="../login.html">تسجيل الدخول</a></nav>
-</header>
-<main>
-<p class="eyebrow">ابدأ رحلتك التعليمية</p>
-<h1>اختار مرحلتك<br><em>وخلّي العربي أبسط.</em></h1>
-<p class="intro">اختار المرحلة المناسبة ليك عشان تبدأ. كل مسار معمول ليتناسب مع الصف الدراسي والمنهج المصري.</p>
-<section class="cards" aria-label="المراحل الدراسية">
-<article class="card"><span class="number">01 / PRIMARY</span><h2>المرحلة الابتدائية</h2><p>تأسيس ممتع وواضح من الصف الأول إلى الصف السادس الابتدائي.</p><a href="../login.html?stage=primary">اختار المرحلة <span aria-hidden="true">←</span></a></article>
-<article class="card"><span class="number">02 / PREPARATORY</span><h2>المرحلة الإعدادية</h2><p>قواعد وتطبيقات عملية من الصف الأول إلى الصف الثالث الإعدادي.</p><a href="../login.html?stage=prep">اختار المرحلة <span aria-hidden="true">←</span></a></article>
-<article class="card"><span class="number">03 / SECONDARY</span><h2>المرحلة الثانوية</h2><p>فهم أعمق واستعداد أقوى من الصف الأول إلى الصف الثالث الثانوي.</p><a href="../login.html?stage=secondary">اختار المرحلة <span aria-hidden="true">←</span></a></article>
-</section>
-<p class="note">للمتابعة إلى حساب الطالب، سجّل الدخول. تفاصيل الدروس والمجموعات تُعلن حسب الصف الدراسي.</p>
-</main>
-</body>
+<body><p>This page has moved to <a href="../tracks/">/tracks/</a>.</p></body>
 </html>
