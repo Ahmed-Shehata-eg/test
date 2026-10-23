@@ -16,7 +16,7 @@
     .login-shell { width:min(100%, 520px); }
     .login-back { display:inline-flex; margin-bottom:22px; color:#173d36; text-decoration:none; font-weight:700; }
     .login-card { position:relative; padding:clamp(24px, 6vw, 44px); background:#fff; border-top:4px solid #c8e66a; box-shadow:0 20px 70px rgb(23 61 54 / 10%); }
-    .login-mark { display:grid; place-items:center; width:54px; height:54px; margin-bottom:24px; border-radius:50%; background:#173d36; color:#c8e66a; font-size:28px; font-weight:800; }
+    .login-teacher-image { display:block; width:100%; max-height:210px; margin:0 0 22px; object-fit:cover; object-position:center 35%; border-radius:4px; }\n    .login-mark { display:grid; place-items:center; width:54px; height:54px; margin-bottom:24px; border-radius:50%; background:#173d36; color:#c8e66a; font-size:28px; font-weight:800; }
     .login-card h1 { margin:0 0 12px; color:#173d36; font-size:clamp(26px, 5vw, 36px); line-height:1.5; }
     .login-card h1 em { color:#e16f52; font-style:normal; }
     .login-card > p { margin:0 0 24px; color:#66716c; line-height:1.9; }
@@ -30,7 +30,7 @@
   <main class="login-shell">
     <a class="login-back" href="./index.html">← الرجوع إلى الصفحة الرئيسية</a>
     <section class="login-card" aria-labelledby="login-title">
-      <div class="login-mark" aria-hidden="true">ع</div>
+      <img class="login-teacher-image" src="./ahmed-shehata.jpeg" alt="الأستاذ أحمد شحاتة" fetchpriority="high"><div class="login-mark" aria-hidden="true">ع</div>
       <p class="eyebrow eyebrow-dark">منصة الأستاذ أحمد شحاتة</p>
       <h1 id="login-title">أهلًا بيك في<br><em>حساب الطالب.</em></h1>
       <p>سجّل الدخول أو أنشئ حسابًا جديدًا من خلال النموذج. اتبع التعليمات التي تظهر لك لإكمال التحقق.</p>
