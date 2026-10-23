@@ -299,3 +299,24 @@ h2 { font-size: clamp(28px, 3.3vw, 43px); }
 .google-login-button:focus-visible { outline-color: #4285f4; }
 .google-login-button .google-logo { flex: 0 0 18px; }
 .google-login-button:disabled { opacity: .7; }
+
+
+/* Phone number sign-in */
+.phone-login-button { display:inline-flex; align-items:center; justify-content:center; min-height:40px; padding:8px 12px; border:1px solid rgb(255 254 250 / 45%); border-radius:3px; background:transparent; color:var(--white); font-size:11px; font-weight:700; cursor:pointer; }
+.phone-login-button:hover, .phone-login-button:focus-visible { border-color:var(--lime); color:var(--lime); }
+.phone-auth-dialog { position:fixed; width:min(460px, calc(100% - 28px)); max-height:min(92svh, 760px); padding:32px 36px; overflow-y:auto; border:0; border-top:3px solid var(--lime); background:var(--white); color:var(--ink); box-shadow:0 24px 80px rgb(0 0 0 / 24%); }
+.phone-auth-dialog[open] { display:block; }
+.phone-auth-dialog::backdrop { background:rgb(10 24 21 / 66%); backdrop-filter:blur(3px); }
+.phone-auth-dialog .dialog-close { position:absolute; top:10px; left:14px; border:0; background:transparent; color:var(--muted); font-size:27px; cursor:pointer; }
+.phone-auth-dialog .dialog-heading { margin-bottom:20px; }
+.phone-auth-dialog form { display:grid; gap:10px; }
+.phone-auth-dialog label { font-size:12px; font-weight:700; }
+.phone-auth-dialog input { width:100%; min-height:48px; padding:10px 12px; border:1px solid var(--line); border-radius:2px; background:#fff; color:var(--ink); direction:ltr; text-align:left; }
+.phone-auth-dialog input:focus { outline:2px solid var(--teal); outline-offset:1px; }
+.phone-auth-dialog .form-hint { margin:0; color:var(--muted); font-size:10px; }
+.phone-auth-dialog .form-submit { width:100%; margin-top:8px; }
+.phone-auth-dialog .form-privacy { margin:16px 0 0; color:var(--muted); font-size:10px; }
+.phone-auth-dialog .form-result { margin:12px 0 0; font-size:12px; }
+.phone-resend-button { border:0; background:transparent; color:var(--ink); text-decoration:underline; font-size:11px; cursor:pointer; }
+.phone-auth-dialog [hidden] { display:none !important; }
+@media (max-width:900px) { .phone-login-button { width:100%; min-height:44px; } .phone-auth-dialog { padding:28px 22px; } }
