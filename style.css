@@ -291,3 +291,11 @@ h2 { font-size: clamp(28px, 3.3vw, 43px); }
 .whatsapp-contact bdi { font-size: 11px; font-weight: 600; }
 .footer-whatsapp { color: var(--lime); font-size: 10px; font-weight: 700; }
 .footer-whatsapp span { margin-inline-start: 4px; }
+
+
+.google-login-button { background: #fff; color: #3c4043; border-color: #dadce0; }
+.google-login-button:hover,
+.google-login-button:focus-visible { background: #f8faff; border-color: #b7c7e8; }
+.google-login-button:focus-visible { outline-color: #4285f4; }
+.google-login-button .google-logo { flex: 0 0 18px; }
+.google-login-button:disabled { opacity: .7; }
