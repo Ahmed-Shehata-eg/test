@@ -39,3 +39,10 @@
 ## التقنية المقترحة للمرحلة الإنتاجية
 
 يمكن نقل المشروع تدريجيًا إلى واجهة Next.js وTypeScript، مع PostgreSQL/Supabase للمصادقة والبيانات، وخدمة فيديو محمية، وبوابة دفع مصرية مناسبة. تُحسم التفاصيل بعد تحديد متطلبات الأستاذ وحجم الاستخدام وتكاليف الخدمات.
+
+
+## Google login and online payments
+
+- A Google sign-in control and Supabase OAuth client are included in `auth.js`.
+- Google/Supabase dashboard configuration is still required; see [Google and EasyKash setup](docs/GOOGLE_AUTH_EASYKASH_SETUP.md).
+- EasyKash checkout is **not live yet**. Production payment processing must use EasyKash's official merchant API documentation and server-side credential storage. A redirect alone must never unlock a course.
