@@ -128,7 +128,7 @@ async function openAuthDialog() {
   }
 
   if (clerk.isSignedIn) {
-    showMessage("أنت مسجّل الدخول بالفعل.");
+    if (dialog?.open) dialog.close();
     return;
   }
 
