@@ -236,3 +236,106 @@ h2 { font-size: clamp(28px, 3.3vw, 43px); }
 @media (prefers-reduced-motion: reduce) {
 	*, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+
+/* Google authentication control */
+.google-login-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	min-height: 40px;
+	padding: 8px 12px;
+	border: 1px solid rgb(255 254 250 / 48%);
+	border-radius: 3px;
+	background: rgb(255 255 255 / 7%);
+	color: var(--white);
+	font-size: 11px;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background .2s ease, border-color .2s ease;
+}
+.google-login-button:hover,
+.google-login-button:focus-visible {
+	background: rgb(255 255 255 / 14%);
+	border-color: var(--lime);
+}
+.google-login-button:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
+.google-login-button:disabled { opacity: .65; cursor: wait; }
+.auth-status { max-width: 180px; color: var(--lime); font-size: 10px; overflow-wrap: anywhere; }
+@media (max-width: 900px) {
+	.google-login-button { width: 100%; min-height: 44px; justify-content: center; }
+	.auth-status { max-width: 100%; text-align: center; }
+}
+
+
+/* WhatsApp contact links */
+.whatsapp-contact {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 9px;
+	width: 100%;
+	margin-top: 10px;
+	padding: 12px 14px;
+	border: 1px solid #25a56a;
+	border-radius: 3px;
+	background: #e9f8ef;
+	color: #176b43;
+	font-size: 12px;
+	font-weight: 700;
+	transition: background .2s ease, transform .2s ease;
+}
+.whatsapp-contact:hover { background: #d8f2e2; transform: translateY(-1px); }
+.whatsapp-contact > span { font-size: 17px; }
+.whatsapp-contact bdi { font-size: 11px; font-weight: 600; }
+.footer-whatsapp { color: var(--lime); font-size: 10px; font-weight: 700; }
+.footer-whatsapp span { margin-inline-start: 4px; }
+
+
+.google-login-button { background: #fff; color: #3c4043; border-color: #dadce0; }
+.google-login-button:hover,
+.google-login-button:focus-visible { background: #f8faff; border-color: #b7c7e8; }
+.google-login-button:focus-visible { outline-color: #4285f4; }
+.google-login-button .google-logo { flex: 0 0 18px; }
+.google-login-button:disabled { opacity: .7; }
+
+
+/* Phone number sign-in */
+.phone-login-button { display:inline-flex; align-items:center; justify-content:center; min-height:40px; padding:8px 12px; border:1px solid rgb(255 254 250 / 45%); border-radius:3px; background:transparent; color:var(--white); font-size:11px; font-weight:700; cursor:pointer; }
+.phone-login-button:hover, .phone-login-button:focus-visible { border-color:var(--lime); color:var(--lime); }
+.phone-auth-dialog { position:fixed; width:min(460px, calc(100% - 28px)); max-height:min(92svh, 760px); padding:32px 36px; overflow-y:auto; border:0; border-top:3px solid var(--lime); background:var(--white); color:var(--ink); box-shadow:0 24px 80px rgb(0 0 0 / 24%); }
+.phone-auth-dialog[open] { display:block; }
+.phone-auth-dialog::backdrop { background:rgb(10 24 21 / 66%); backdrop-filter:blur(3px); }
+.phone-auth-dialog .dialog-close { position:absolute; top:10px; left:14px; border:0; background:transparent; color:var(--muted); font-size:27px; cursor:pointer; }
+.phone-auth-dialog .dialog-heading { margin-bottom:20px; }
+.phone-auth-dialog form { display:grid; gap:10px; }
+.phone-auth-dialog label { font-size:12px; font-weight:700; }
+.phone-auth-dialog input { width:100%; min-height:48px; padding:10px 12px; border:1px solid var(--line); border-radius:2px; background:#fff; color:var(--ink); direction:ltr; text-align:left; }
+.phone-auth-dialog input:focus { outline:2px solid var(--teal); outline-offset:1px; }
+.phone-auth-dialog .form-hint { margin:0; color:var(--muted); font-size:10px; }
+.phone-auth-dialog .form-submit { width:100%; margin-top:8px; }
+.phone-auth-dialog .form-privacy { margin:16px 0 0; color:var(--muted); font-size:10px; }
+.phone-auth-dialog .form-result { margin:12px 0 0; font-size:12px; }
+.phone-resend-button { border:0; background:transparent; color:var(--ink); text-decoration:underline; font-size:11px; cursor:pointer; }
+.phone-auth-dialog [hidden] { display:none !important; }
+@media (max-width:900px) { .phone-login-button { width:100%; min-height:44px; } .phone-auth-dialog { padding:28px 22px; } }
+
+
+/* Phone/password authentication */
+.auth-mode-select { width:100%; min-height:44px; padding:8px 10px; margin:0 0 14px; border:1px solid var(--line); background:#fff; color:var(--ink); font:inherit; }
+.phone-auth-dialog form { display:grid; gap:10px; }
+.phone-auth-dialog input[hidden], .phone-auth-dialog label[hidden], .phone-auth-dialog form[hidden] { display:none !important; }
+.phone-auth-dialog [hidden] { display:none !important; }
+
+
+/* Clerk authentication UI */
+#clerk-auth-mount {
+	width: 100%;
+	min-height: 280px;
+	margin-top: 16px;
+	direction: ltr;
+}
+#clerk-auth-mount > * { max-width: 100%; }
+.phone-auth-dialog #clerk-auth-message { margin-top: 12px; }
+.phone-auth-dialog .form-privacy { margin-top: 16px; }

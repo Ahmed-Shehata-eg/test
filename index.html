@@ -11,6 +11,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
 	<script src="script.js" defer></script>
+	<script type="module" src="auth.js"></script>
 </head>
 <body>
 	<header class="site-header">
@@ -25,6 +26,8 @@
 			<a href="#tracks">المراحل الدراسية</a>
 			<a href="#method">طريقة التعلم</a>
 			<a href="#payment">الدفع</a>
+			<button class="phone-login-button" id="phone-auth-open" type="button">الدخول برقم الموبايل</button>
+			<span class="auth-status" id="auth-status" role="status" aria-live="polite"></span>
 			<a class="nav-join" href="#tracks">ابدأ التعلم <span aria-hidden="true">←</span></a>
 		</nav>
 	</header>
@@ -105,6 +108,7 @@
 				<div class="payment-methods"><span>فودافون كاش</span><span>إنستاباي</span><span>بطاقات بنكية مصرية</span></div>
 				<div class="payment-rule"><span class="rule-icon" aria-hidden="true">✓</span><p>لا يتم قبول مدفوعات من خارج مصر. لا ترسل بيانات بطاقتك أو الرقم السري لأي شخص.</p></div>
 				<a class="payment-contact" href="tel:+201061422921"><span>للاستفسار والاشتراك</span><bdi>+20 10 61422921</bdi></a>
+				<a class="whatsapp-contact" href="https://wa.me/201061422921?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20%D8%A7%D9%84%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D9%81%D9%8A%20%D9%85%D9%86%D8%B5%D8%A9%20%D8%A3%D8%AD%D9%85%D8%AF%20%D8%B4%D8%AD%D8%A7%D8%AA%D8%A9." target="_blank" rel="noopener noreferrer" aria-label="راسل الأستاذ أحمد شحاتة على واتساب"><span aria-hidden="true">◉</span> تواصل عبر واتساب <bdi>+20 10 61422921</bdi></a>
 				<button class="payment-cta enroll-trigger" type="button" data-stage="">اطلب تفاصيل الاشتراك <span aria-hidden="true">←</span></button>
 			</div>
 		</section>
@@ -122,6 +126,7 @@
 	<footer class="site-footer">
 		<a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true">ع</span><span class="brand-copy"><strong>أحمد شحاتة</strong><small>منصة اللغة العربية</small></span></a>
 		<a class="footer-phone" href="tel:+201061422921" aria-label="اتصل بالأستاذ أحمد شحاتة على +20 10 61422921"><span>اتصل بالأستاذ</span><bdi>+20 10 61422921</bdi></a>
+		<a class="footer-whatsapp" href="https://wa.me/201061422921" target="_blank" rel="noopener noreferrer" aria-label="راسل الأستاذ أحمد شحاتة على واتساب">واتساب <span aria-hidden="true">↗</span></a>
 		<span class="footer-country">مصر <span aria-hidden="true">·</span> تعليم أونلاين</span>
 	</footer>
 
@@ -142,6 +147,13 @@
 			<p class="form-privacy">هذه معاينة فقط؛ لا تُرسل البيانات ولا تُنفذ أي عملية دفع.</p>
 			<div class="form-result" id="form-result" role="status" aria-live="polite" hidden></div>
 		</form>
+	</dialog>
+	<dialog class="phone-auth-dialog" id="phone-auth-dialog" aria-labelledby="phone-auth-title">
+		<button class="dialog-close" id="phone-auth-close" type="button" aria-label="إغلاق">×</button>
+		<div class="dialog-heading"><p class="eyebrow eyebrow-dark">حساب الطالب</p><h2 id="phone-auth-title">حسابك في<br><em>منصة العربي.</em></h2><p>سجّل الدخول أو أنشئ حسابًا من خلال Clerk.</p></div>
+		<div id="clerk-auth-mount" aria-live="polite"></div>
+		<p class="form-result" id="clerk-auth-message" role="status" aria-live="polite"></p>
+		<p class="form-privacy">استخدم بيانات الدخول الخاصة بك فقط. لا تشارك رمز التحقق أو كلمة المرور مع أي شخص.</p>
 	</dialog>
 	<div class="dialog-backdrop" hidden></div>
 </body>
