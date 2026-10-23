@@ -25,12 +25,10 @@ function showMessage(text, isError = false) {
 function frontendApiDomain(publishableKey) {
   const parts = publishableKey.split("_");
   if (parts.length < 3 || !parts[2]) return null;
-
   let encoded = parts[2].replace(/-/g, "+").replace(/_/g, "/");
   while (encoded.length % 4) encoded += "=";
-
   try {
-    return atob(encoded).replace(/\$$/, "");
+    return atob(encoded).replace(/\\$$/, "");
   } catch {
     return null;
   }
@@ -47,7 +45,6 @@ function loadScript(src, publishableKey = "") {
       }
       return;
     }
-
     const script = document.createElement("script");
     script.src = src;
     script.async = true;
@@ -105,13 +102,11 @@ async function openAuthDialog() {
     try {
       const domain = frontendApiDomain(CLERK_PUBLISHABLE_KEY);
       if (!domain) throw new Error("The Clerk Publishable Key format is not valid.");
-
       await loadScript(`https://${domain}/npm/@clerk/ui@1/dist/ui.browser.js`);
       await loadScript(
         `https://${domain}/npm/@clerk/clerk-js@6/dist/clerk.browser.js`,
         CLERK_PUBLISHABLE_KEY,
       );
-
       if (!window.Clerk) throw new Error("Clerk did not initialize.");
       clerk = window.Clerk;
       await clerk.load({ ui: { ClerkUI: window.__internal_ClerkUICtor } });
@@ -175,5 +170,7 @@ if (dialog) {
   });
 }
 
-// Clerk initializes when the student opens the sign-in dialog. This avoids
-// opening a modal automatically on page load.
+// The dedicated login page opens the sign-in form automatically.
+if (document.body.dataset.autoOpenAuth === "true") {
+  openAuthDialog();
+}
