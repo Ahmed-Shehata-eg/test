@@ -26,7 +26,6 @@
 			<a href="#tracks">المراحل الدراسية</a>
 			<a href="#method">طريقة التعلم</a>
 			<a href="#payment">الدفع</a>
-			<button class="google-login-button" id="google-auth-button" type="button" aria-label="تسجيل الدخول باستخدام Google"><svg class="google-logo" aria-hidden="true" viewBox="0 0 48 48" width="18" height="18"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.72 7.18l7.62 5.91c4.45-4.11 7.14-10.17 7.14-17.56z"/><path fill="#FBBC05" d="M10.53 28.59A14.4 14.4 0 0 1 9.75 24c0-1.59.27-3.13.76-4.59l-7.98-6.19A23.9 23.9 0 0 0 0 24c0 3.87.93 7.52 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.9-5.89l-7.62-5.91c-2.12 1.42-4.83 2.26-8.28 2.26-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span id="google-auth-label">تسجيل الدخول بـ Google</span></button>
 			<button class="phone-login-button" id="phone-auth-open" type="button">الدخول برقم الموبايل</button>
 			<span class="auth-status" id="auth-status" role="status" aria-live="polite"></span>
 			<a class="nav-join" href="#tracks">ابدأ التعلم <span aria-hidden="true">←</span></a>
@@ -150,22 +149,39 @@
 		</form>
 	</dialog>
 	<dialog class="phone-auth-dialog" id="phone-auth-dialog" aria-labelledby="phone-auth-title">
-		<button class="dialog-close" id="phone-auth-close" type="button" aria-label="إغلاق">×</button>
-		<div class="dialog-heading"><p class="eyebrow eyebrow-dark">حساب الطالب</p><h2 id="phone-auth-title">الدخول برقم<br><em>الموبايل.</em></h2><p>هنرسل لك رمز تحقق برسالة SMS لتأكيد رقمك.</p></div>
-		<form id="phone-send-form">
-			<label for="login-phone">رقم الموبايل</label>
-			<input id="login-phone" name="loginPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+20 10 1234 5678" required>
-			<p class="form-hint">اكتب رقمك بصيغة دولية، مثل +201012345678.</p>
-			<button class="button button-lime form-submit" id="phone-send-code" type="submit">إرسال رمز التحقق</button>
+		<button class="dialog-close" id="phone-auth-close" type="button" aria-label="Close">×</button>
+		<div class="dialog-heading"><p class="eyebrow eyebrow-dark">حساب الطالب</p><h2 id="phone-auth-title">حسابك برقم<br><em>الموبايل.</em></h2><p>أنشئ حسابًا أو سجّل الدخول برقمك وكلمة المرور.</p></div>
+		<label for="auth-mode">اختار العملية</label>
+		<select id="auth-mode" class="auth-mode-select">
+			<option value="login">تسجيل الدخول</option>
+			<option value="signup">إنشاء حساب جديد</option>
+			<option value="forgot">نسيت كلمة المرور؟</option>
+		</select>
+		<form id="password-auth-form">
+			<label for="login-phone">رقم الموبايل المصري</label>
+			<input id="login-phone" name="loginPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+201012345678" required>
+			<label id="password-label" for="login-password">كلمة المرور</label>
+			<input id="login-password" name="loginPassword" type="password" autocomplete="current-password" minlength="8" placeholder="8 أحرف على الأقل">
+			<label id="confirm-password-label" for="confirm-password" hidden>تأكيد كلمة المرور</label>
+			<input id="confirm-password" name="confirmPassword" type="password" autocomplete="new-password" minlength="8" placeholder="اكتب كلمة المرور مرة أخرى" hidden>
+			<p class="form-hint">رقمك يُكتب بصيغة +20، أو 01xxxxxxxxx.</p>
+			<button class="button button-lime form-submit" id="password-auth-submit" type="submit">تسجيل الدخول</button>
 		</form>
 		<form id="phone-verify-form" hidden>
-			<label for="phone-otp">رمز التحقق المرسل إليك</label>
+			<label for="phone-otp">رمز التحقق المرسل برسالة SMS</label>
 			<input id="phone-otp" name="phoneOtp" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" placeholder="000000" required>
-			<button class="button button-lime form-submit" id="phone-verify-code" type="submit">تأكيد الرمز وتسجيل الدخول</button>
-			<button class="phone-resend-button" id="phone-change-number" type="button">تغيير رقم الموبايل</button>
+			<button class="button button-lime form-submit" id="phone-verify-code" type="submit">تأكيد الرمز</button>
+			<button class="phone-resend-button" id="phone-change-number" type="button">العودة وتغيير الرقم</button>
+		</form>
+		<form id="reset-password-form" hidden>
+			<label for="reset-password">كلمة المرور الجديدة</label>
+			<input id="reset-password" name="resetPassword" type="password" autocomplete="new-password" minlength="8" required placeholder="8 أحرف على الأقل">
+			<label for="reset-password-confirm">تأكيد كلمة المرور الجديدة</label>
+			<input id="reset-password-confirm" name="resetPasswordConfirm" type="password" autocomplete="new-password" minlength="8" required placeholder="اكتبها مرة أخرى">
+			<button class="button button-lime form-submit" id="reset-password-submit" type="submit">حفظ كلمة المرور الجديدة</button>
 		</form>
 		<p class="form-result" id="phone-auth-message" role="status" aria-live="polite"></p>
-		<p class="form-privacy">قد تُطبق رسوم رسائل SMS حسب إعدادات الخدمة.</p>
+		<p class="form-privacy">قد تُطبق رسوم رسائل SMS حسب إعدادات الخدمة. لا تستخدم كلمة مرور تستعملها في موقع آخر.</p>
 	</dialog>
 	<div class="dialog-backdrop" hidden></div>
 </body>
