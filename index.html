@@ -149,39 +149,11 @@
 		</form>
 	</dialog>
 	<dialog class="phone-auth-dialog" id="phone-auth-dialog" aria-labelledby="phone-auth-title">
-		<button class="dialog-close" id="phone-auth-close" type="button" aria-label="Close">×</button>
-		<div class="dialog-heading"><p class="eyebrow eyebrow-dark">حساب الطالب</p><h2 id="phone-auth-title">حسابك برقم<br><em>الموبايل.</em></h2><p>أنشئ حسابًا أو سجّل الدخول برقمك وكلمة المرور.</p></div>
-		<label for="auth-mode">اختار العملية</label>
-		<select id="auth-mode" class="auth-mode-select">
-			<option value="login">تسجيل الدخول</option>
-			<option value="signup">إنشاء حساب جديد</option>
-			<option value="forgot">نسيت كلمة المرور؟</option>
-		</select>
-		<form id="password-auth-form">
-			<label for="login-phone">رقم الموبايل المصري</label>
-			<input id="login-phone" name="loginPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+201012345678" required>
-			<label id="password-label" for="login-password">كلمة المرور</label>
-			<input id="login-password" name="loginPassword" type="password" autocomplete="current-password" minlength="8" placeholder="8 أحرف على الأقل">
-			<label id="confirm-password-label" for="confirm-password" hidden>تأكيد كلمة المرور</label>
-			<input id="confirm-password" name="confirmPassword" type="password" autocomplete="new-password" minlength="8" placeholder="اكتب كلمة المرور مرة أخرى" hidden>
-			<p class="form-hint">رقمك يُكتب بصيغة +20، أو 01xxxxxxxxx.</p>
-			<button class="button button-lime form-submit" id="password-auth-submit" type="submit">تسجيل الدخول</button>
-		</form>
-		<form id="phone-verify-form" hidden>
-			<label for="phone-otp">رمز التحقق المرسل برسالة SMS</label>
-			<input id="phone-otp" name="phoneOtp" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" placeholder="000000" required>
-			<button class="button button-lime form-submit" id="phone-verify-code" type="submit">تأكيد الرمز</button>
-			<button class="phone-resend-button" id="phone-change-number" type="button">العودة وتغيير الرقم</button>
-		</form>
-		<form id="reset-password-form" hidden>
-			<label for="reset-password">كلمة المرور الجديدة</label>
-			<input id="reset-password" name="resetPassword" type="password" autocomplete="new-password" minlength="8" required placeholder="8 أحرف على الأقل">
-			<label for="reset-password-confirm">تأكيد كلمة المرور الجديدة</label>
-			<input id="reset-password-confirm" name="resetPasswordConfirm" type="password" autocomplete="new-password" minlength="8" required placeholder="اكتبها مرة أخرى">
-			<button class="button button-lime form-submit" id="reset-password-submit" type="submit">حفظ كلمة المرور الجديدة</button>
-		</form>
-		<p class="form-result" id="phone-auth-message" role="status" aria-live="polite"></p>
-		<p class="form-privacy">قد تُطبق رسوم رسائل SMS حسب إعدادات الخدمة. لا تستخدم كلمة مرور تستعملها في موقع آخر.</p>
+		<button class="dialog-close" id="phone-auth-close" type="button" aria-label="إغلاق">×</button>
+		<div class="dialog-heading"><p class="eyebrow eyebrow-dark">حساب الطالب</p><h2 id="phone-auth-title">حسابك في<br><em>منصة العربي.</em></h2><p>سجّل الدخول أو أنشئ حسابًا من خلال Clerk.</p></div>
+		<div id="clerk-auth-mount" aria-live="polite"></div>
+		<p class="form-result" id="clerk-auth-message" role="status" aria-live="polite"></p>
+		<p class="form-privacy">استخدم بيانات الدخول الخاصة بك فقط. لا تشارك رمز التحقق أو كلمة المرور مع أي شخص.</p>
 	</dialog>
 	<div class="dialog-backdrop" hidden></div>
 </body>
