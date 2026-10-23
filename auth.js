@@ -12,6 +12,7 @@ const SUPABASE_PUBLISHABLE_KEY = "YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY";
 
 const button = document.querySelector("#google-auth-button");
 const status = document.querySelector("#auth-status");
+const buttonLabel = document.querySelector("#google-auth-label");
 const isConfigured =
   SUPABASE_URL.startsWith("https://") &&
   !SUPABASE_URL.includes("YOUR_PROJECT_ID") &&
@@ -29,11 +30,11 @@ if (!button || !status) {
 
   function renderUser(user) {
     if (user) {
-      button.textContent = "تسجيل الخروج";
+      if (buttonLabel) buttonLabel.textContent = "تسجيل الخروج";
       button.setAttribute("aria-label", "تسجيل الخروج من حساب الطالب");
       status.textContent = user.email ? `مرحبًا، ${user.email}` : "تم تسجيل الدخول";
     } else {
-      button.textContent = "تسجيل الدخول بـ Google";
+      if (buttonLabel) buttonLabel.textContent = "تسجيل الدخول بـ Google";
       button.setAttribute("aria-label", "تسجيل الدخول باستخدام Google");
       status.textContent = "";
     }
