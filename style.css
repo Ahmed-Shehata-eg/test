@@ -320,3 +320,10 @@ h2 { font-size: clamp(28px, 3.3vw, 43px); }
 .phone-resend-button { border:0; background:transparent; color:var(--ink); text-decoration:underline; font-size:11px; cursor:pointer; }
 .phone-auth-dialog [hidden] { display:none !important; }
 @media (max-width:900px) { .phone-login-button { width:100%; min-height:44px; } .phone-auth-dialog { padding:28px 22px; } }
+
+
+/* Phone/password authentication */
+.auth-mode-select { width:100%; min-height:44px; padding:8px 10px; margin:0 0 14px; border:1px solid var(--line); background:#fff; color:var(--ink); font:inherit; }
+.phone-auth-dialog form { display:grid; gap:10px; }
+.phone-auth-dialog input[hidden], .phone-auth-dialog label[hidden], .phone-auth-dialog form[hidden] { display:none !important; }
+.phone-auth-dialog [hidden] { display:none !important; }
