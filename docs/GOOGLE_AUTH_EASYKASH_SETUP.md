@@ -46,3 +46,18 @@ Official EasyKash site: https://dev.easykash.net/
 - Google sign-in UI and Supabase OAuth client: added, pending Supabase/Google dashboard configuration.
 - EasyKash: not activated yet. The exact API integration must be based on the merchant documentation supplied by EasyKash; the existing payment area is not proof that online checkout is active.
 - Do not announce that payments are live until a successful sandbox transaction and webhook verification have been tested.
+
+
+## 1b. Phone number login with SMS OTP
+
+The frontend now includes an Egyptian mobile number form and a six-digit SMS verification flow using Supabase Auth.
+
+1. In the Supabase dashboard, open **Authentication → Providers** and enable **Phone**.
+2. Configure an SMS provider supported by Supabase (for example, Twilio, Vonage, or MessageBird) and save the provider credentials only in Supabase's dashboard.
+3. Test with a number you control before opening sign-in to students.
+4. Configure rate limits and CAPTCHA to reduce unwanted SMS sending and cost.
+5. In `auth.js`, set the Supabase project URL and publishable/anon key. Never put service-role keys or SMS-provider secrets in frontend code.
+
+Official guide: https://supabase.com/docs/guides/auth/phone-login
+
+The UI and client flow are prepared, but SMS delivery will not work until a real Supabase project and SMS provider are configured. Phone sign-in can create an account for a new number by default; plan student-account and course-access rules before granting paid content.
