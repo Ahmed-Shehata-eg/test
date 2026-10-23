@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173d36">
+  <meta name="description" content="تسجيل الدخول إلى منصة الأستاذ أحمد شحاتة للغة العربية.">
+  <title>تسجيل الدخول | منصة أحمد شحاتة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="auth.js"></script>
+  <style>
+    body.login-page { min-height:100vh; display:grid; place-items:center; padding:24px; background:#f5f3ec; }
+    .login-shell { width:min(100%, 520px); }
+    .login-back { display:inline-flex; margin-bottom:22px; color:#173d36; text-decoration:none; font-weight:700; }
+    .login-card { position:relative; padding:clamp(24px, 6vw, 44px); background:#fff; border-top:4px solid #c8e66a; box-shadow:0 20px 70px rgb(23 61 54 / 10%); }
+    .login-mark { display:grid; place-items:center; width:54px; height:54px; margin-bottom:24px; border-radius:50%; background:#173d36; color:#c8e66a; font-size:28px; font-weight:800; }
+    .login-card h1 { margin:0 0 12px; color:#173d36; font-size:clamp(26px, 5vw, 36px); line-height:1.5; }
+    .login-card h1 em { color:#e16f52; font-style:normal; }
+    .login-card > p { margin:0 0 24px; color:#66716c; line-height:1.9; }
+    .login-card #phone-auth-open { width:100%; min-height:48px; padding:12px 18px; border:0; background:#173d36; color:#fff; font:inherit; font-weight:700; cursor:pointer; }
+    .login-card #auth-status { display:block; margin-top:14px; color:#173d36; text-align:center; overflow-wrap:anywhere; }
+    .login-card .login-note { margin-top:20px; padding-top:16px; border-top:1px solid #e6e8e1; font-size:12px; }
+    .phone-auth-dialog { margin:auto; }
+  </style>
+</head>
+<body class="login-page" data-auto-open-auth="true">
+  <main class="login-shell">
+    <a class="login-back" href="./index.html">← الرجوع إلى الصفحة الرئيسية</a>
+    <section class="login-card" aria-labelledby="login-title">
+      <div class="login-mark" aria-hidden="true">ع</div>
+      <p class="eyebrow eyebrow-dark">منصة الأستاذ أحمد شحاتة</p>
+      <h1 id="login-title">أهلًا بيك في<br><em>حساب الطالب.</em></h1>
+      <p>سجّل الدخول أو أنشئ حسابًا جديدًا من خلال النموذج. اتبع التعليمات التي تظهر لك لإكمال التحقق.</p>
+      <button id="phone-auth-open" type="button">فتح تسجيل الدخول</button>
+      <span class="auth-status" id="auth-status" role="status" aria-live="polite"></span>
+      <p class="login-note">لا تشارك كلمة المرور أو رمز التحقق مع أي شخص. لو واجهتك مشكلة في الدخول، تواصل مع المدرس.</p>
+    </section>
+  </main>
+
+  <dialog class="phone-auth-dialog" id="phone-auth-dialog" aria-labelledby="phone-auth-title">
+    <button class="dialog-close" id="phone-auth-close" type="button" aria-label="إغلاق">×</button>
+    <div class="dialog-heading">
+      <p class="eyebrow eyebrow-dark">حساب الطالب</p>
+      <h2 id="phone-auth-title">حسابك في<br><em>منصة العربي.</em></h2>
+      <p>سجّل الدخول أو أنشئ حسابًا من خلال Clerk.</p>
+    </div>
+    <div id="clerk-auth-mount" aria-live="polite"></div>
+    <p class="form-result" id="clerk-auth-message" role="status" aria-live="polite"></p>
+    <p class="form-privacy">استخدم بيانات الدخول الخاصة بك فقط. لا تشارك رمز التحقق أو كلمة المرور مع أي شخص.</p>
+  </dialog>
+</body>
+</html>
