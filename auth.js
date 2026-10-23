@@ -175,9 +175,5 @@ if (dialog) {
   });
 }
 
-// If a key is configured, initialize early so returning users see their session.
-if (isConfigured) {
-  openAuthDialog().then(() => {
-    if (dialog?.open) dialog.close();
-  });
-}
+// Clerk initializes when the student opens the sign-in dialog. This avoids
+// opening a modal automatically on page load.
